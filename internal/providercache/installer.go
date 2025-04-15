@@ -445,7 +445,7 @@ func (i *Installer) ensureProviderVersionsInstall(
 
 	for provider, version := range need {
 		traceCtx, span := tracing.Tracer().Start(ctx,
-			fmt.Sprintf("opentofu.provider.install"),
+			"opentofu.provider.install",
 			trace.WithAttributes(
 				attribute.String(tracing.ProviderAddressAttributeName, provider.String()),
 				attribute.String(tracing.ProviderVersionAttributeName, version.String()),

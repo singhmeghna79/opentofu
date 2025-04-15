@@ -118,7 +118,7 @@ func DataDirs() ([]string, error) {
 // and from the environment, returning a merged configuration along with any
 // diagnostics (errors and warnings) encountered along the way.
 func LoadConfig(ctx context.Context) (*Config, tfdiags.Diagnostics) {
-	ctx, span := tracing.Tracer().Start(ctx, "opentofu.config.load")
+	_, span := tracing.Tracer().Start(ctx, "opentofu.config.load")
 	defer span.End()
 
 	var diags tfdiags.Diagnostics

@@ -96,7 +96,7 @@ func loadLocks(loadParse func(*hclparse.Parser) (*hcl.File, hcl.Diagnostics)) (*
 // temporary files may be temporarily created in the same directory as the
 // given filename during the operation.
 func SaveLocksToFile(ctx context.Context, locks *Locks, filename string) tfdiags.Diagnostics {
-	ctx, span := tracing.Tracer().Start(ctx, "opentofu.lockfile.save", trace.WithAttributes(semconv.FileName(filename)))
+	_, span := tracing.Tracer().Start(ctx, "opentofu.lockfile.save", trace.WithAttributes(semconv.FileName(filename)))
 	defer span.End()
 
 	src, diags := SaveLocksToBytes(locks)

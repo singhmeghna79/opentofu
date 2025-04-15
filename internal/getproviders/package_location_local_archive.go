@@ -36,7 +36,7 @@ var _ PackageLocation = PackageLocalArchive("")
 func (p PackageLocalArchive) String() string { return string(p) }
 
 func (p PackageLocalArchive) InstallProviderPackage(ctx context.Context, meta PackageMeta, targetDir string, allowedHashes []Hash) (*PackageAuthenticationResult, error) {
-	ctx, span := tracing.Tracer().Start(ctx, "opentofu.provider.install.decompress")
+	_, span := tracing.Tracer().Start(ctx, "opentofu.provider.install.decompress")
 	defer span.End()
 
 	var authResult *PackageAuthenticationResult

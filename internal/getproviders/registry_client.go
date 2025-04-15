@@ -107,7 +107,7 @@ func newRegistryClient(baseURL *url.URL, creds svcauth.HostCredentials) *registr
 // ErrQueryFailed for any other protocol or operational problem.
 func (c *registryClient) ProviderVersions(ctx context.Context, addr addrs.Provider) (map[string][]string, []string, error) {
 	ctx, span := tracing.Tracer().Start(ctx,
-		fmt.Sprintf("opentofu.provider.versions"),
+		"opentofu.provider.versions",
 		trace.WithAttributes(
 			attribute.String(tracing.ProviderAddressAttributeName, addr.String()),
 			attribute.String(tracing.ProviderVersionAttributeName, version.String()),
