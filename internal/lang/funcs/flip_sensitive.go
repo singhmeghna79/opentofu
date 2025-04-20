@@ -1,3 +1,8 @@
+// Copyright (c) The OpenTofu Authors
+// SPDX-License-Identifier: MPL-2.0
+// Copyright (c) 2023 HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package funcs
 
 import (
@@ -6,6 +11,9 @@ import (
 	"github.com/zclconf/go-cty/cty/function"
 )
 
+// a one-argument function that will return the same value it
+// got in the argument, but if the input is sensitive, it will output a
+// non-sensitive value and vice-versa
 var FlipSensitiveFunc = function.New(&function.Spec{
 	Params: []function.Parameter{
 		{
