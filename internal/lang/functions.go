@@ -158,6 +158,7 @@ func makeBaseFunctionTable(baseDir string) map[string]function.Function {
 		"filesha256":       funcs.MakeFileSha256Func(baseDir),
 		"filesha512":       funcs.MakeFileSha512Func(baseDir),
 		"flatten":          stdlib.FlattenFunc,
+		"flipsensitive":    funcs.FlipSensitiveFunc,
 		"floor":            stdlib.FloorFunc,
 		"format":           stdlib.FormatFunc,
 		"formatdate":       stdlib.FormatDateFunc,
