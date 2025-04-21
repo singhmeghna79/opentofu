@@ -483,6 +483,13 @@ func TestFunctions(t *testing.T) {
 			},
 		},
 
+		"flipsensitive": {
+			{
+				`flipsensitive("Hello")`,
+				cty.StringVal("Hello").Mark(marks.Sensitive),
+			},
+		},
+
 		"floor": {
 			{
 				`floor(-1.8)`,
